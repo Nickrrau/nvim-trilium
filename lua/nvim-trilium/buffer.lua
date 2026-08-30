@@ -52,9 +52,9 @@ function M.open_note(note_id)
   vim.bo[buf].buftype = "acwrite"
   vim.bo[buf].bufhidden = "hide"
   vim.bo[buf].swapfile = false
-  vim.bo[buf].filetype = note.mime == "text/markdown" and "markdown" or "html"
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines_of(content))
   set_note_name(buf, note)
+  vim.bo[buf].filetype = "markdown"
   vim.bo[buf].modified = false
   vim.api.nvim_set_current_buf(buf)
   vim.api.nvim_create_autocmd("BufWriteCmd", {

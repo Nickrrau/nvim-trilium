@@ -274,4 +274,20 @@ function M.children(note_id)
   return kids
 end
 
+function M.list_subtree(note_id)
+  note_id = note_id or M.workspace_id()
+  local res = M.search("note.title %= '.*'", {
+    ancestor = note_id,
+    limit = 500,
+    order_by = "title",
+  })
+  local notes = {}
+  for _, n in ipairs(res.results or {}) do
+    if n.noteId ~= note_id and not n.noteId:match("^_") then
+      table.insert(notes, n)
+    end
+  end
+  return notes
+end
+
 return M

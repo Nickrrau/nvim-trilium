@@ -19,4 +19,6 @@ Trilium notes in Neovim over ETAPI. Needs `curl`.
 | `:TriliumOpen [path]` | Open id/title/`a/b/note`; missing path creates it |
 | `:TriliumSave` | Save current note (`:w` also works) |
 
+Optional [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) source: `:Telescope trilium-notes`.
+
 List: `<CR>` enter or open, `o` open content, `-` up, `r` refresh, `q` close.
